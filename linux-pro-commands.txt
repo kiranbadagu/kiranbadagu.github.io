@@ -1,0 +1,115 @@
+File & Directory Management:
+ls -l         # List files with details (permissions, size, owner)
+ls -a         # List all files including hidden
+pwd           # Print current working directory
+cd /path      # Change directory
+mkdir dir     # Create directory
+rm file       # Remove file
+rm -rf dir    # Force remove directory and contents
+cp src dst    # Copy files/directories
+mv src dst    # Move or rename files
+find / -name "file.txt"   # Search for file
+du -sh *      # Show directory sizes
+df -h         # Disk space usage (human-readable)
+
+Package Management: 
+(Debian/Ubuntu):
+apt update          # Refresh package list
+apt upgrade -y      # Upgrade all packages
+apt install pkg     # Install package
+apt remove pkg      # Remove package
+
+(RHEL/CentOS):
+yum install pkg     # Install package
+yum remove pkg      # Remove package
+yum update          # Update system
+dnf install pkg     # Newer distros use dnf
+
+Process & System Management:
+ps aux          # Show all running processes
+top             # Real-time system monitor
+htop            # Interactive system monitor (better top)
+kill -9 PID     # Kill process by ID
+systemctl start service   # Start service
+systemctl stop service    # Stop service
+systemctl restart service # Restart service
+systemctl status service  # Service status
+journalctl -u service     # Show service logs
+uptime          # Show system load & uptime
+whoami          # Show current user
+id              # Show user ID and groups
+
+Networking:
+ip a               # Show network interfaces and IPs
+ifconfig           # Legacy command for network interfaces
+ping host          # Test connectivity
+curl -I https://url.com   # Fetch headers from URL
+wget url           # Download file from URL
+netstat -tulnp     # Show open ports and services
+ss -tulnp          # Modern alternative to netstat
+traceroute host    # Trace route to host
+nslookup domain    # DNS lookup
+dig domain         # Detailed DNS query
+telnet host port   # Test connectivity on port
+
+User & Permission Management:
+adduser username         # Add new user
+passwd username          # Change user password
+usermod -aG group user   # Add user to group
+groups username          # Show groups of user
+chmod 755 file           # Set permissions (rwxr-xr-x)
+chown user:group file    # Change ownership
+sudo command             # Run command as root
+su - user                # Switch user
+
+Disk & Storage:
+lsblk           # List block devices
+mount /dev/sdb1 /mnt   # Mount device
+umount /mnt     # Unmount device
+df -Th          # Show filesystem type & usage
+du -sh /path    # Directory size
+fdisk -l        # List partitions
+
+Logs & Debugging:
+tail -f /var/log/syslog      # Follow system log in real-time
+less /var/log/messages       # View logs page by page
+grep "error" logfile         # Search inside log
+journalctl -xe               # Show detailed logs
+dmesg | less                 # Kernel logs
+
+File Manipulation & Text Processing:
+cat file.txt           # Print file content
+tac file.txt           # Print file in reverse
+less file.txt          # View large file
+head -n 20 file.txt    # First 20 lines
+tail -n 20 file.txt    # Last 20 lines
+tail -f file.txt       # Follow log file
+grep "text" file.txt   # Search text in file
+grep -r "text" /path   # Recursive search
+awk '{print $1,$2}' file.txt   # Extract columns
+sed 's/foo/bar/g' file.txt     # Replace text
+sort file.txt | uniq           # Sort and remove duplicates
+wc -l file.txt         # Count lines
+
+Scheduling & Automation:
+crontab -e       # Edit cron jobs
+crontab -l       # List cron jobs
+at 10:00         # Run job at specific time
+systemctl list-timers   # List systemd timers
+
+Compression & Archiving:
+tar -cvf archive.tar file1 file2   # Create tar archive
+tar -xvf archive.tar               # Extract tar archive
+tar -czvf archive.tar.gz dir/      # Compress with gzip
+tar -xzvf archive.tar.gz           # Extract gzip tar
+gzip file.txt                      # Compress file
+gunzip file.txt.gz                 # Decompress file
+zip archive.zip file1 file2        # Create zip
+unzip archive.zip                  # Extract zip
+
+SSH & File Transfer:
+ssh user@host              # Connect to remote server
+ssh -i key.pem user@host   # Connect with key
+scp file user@host:/path   # Copy file to remote
+scp user@host:/file ./     # Copy file from remote
+rsync -avz src dst         # Sync files (efficient copy)
